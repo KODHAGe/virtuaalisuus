@@ -181,15 +181,43 @@ a:hover::first-letter, a:focus::first-letter {
     background-color: white;
     overflow: scroll;
     border: 1px solid black;
-    height:400px;
-    width:400px;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    height:500px;
+    width:500px;
+    z-index:2;
+}
 
+.content-modal:focus {
+  none;
 }
 
 .content-modal-header {
+  height:25px;
+    display:flex;
     text-align: center;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     position:fixed;
+    width:inherit;
+    background-color:white;
+    background:url('images/header-bg-pattern.png');
+    background-size:contain;
+}
+
+.content-modal-close {
+  background:white;
+  z-index:1;
+  display:inline;
+  margin-left:5px;
+  vertical-align:3px;
+  padding:2px;
+}
+
+.content-modal-heading{
+  background:white;
+  z-index:1;
+  margin:auto;
+  padding:2px;
 }
 
 .content-modal-image {
@@ -197,12 +225,100 @@ a:hover::first-letter, a:focus::first-letter {
     max-height:400px;
 }
 
+.content-modal-footer {
+  width:inherit;
+  height:20px;
+  border-top:1px solid black;
+  border-right:1px solid black;
+  position:absolute;
+  bottom:0px;
+  background:white;
+}
+
+
+.ui-icon, .ui-widget-content .ui-icon {
+background:url('images/resize.png');
+background-size:contain;
+border:1px black solid;
+border-right:0px;
+border-bottom:0px;
+}
+.ui-icon {
+  height:20px;
+  width:20px;
+  bottom:0px;
+  right:0px;
+}
+
+/*JSP*/
+
+.ui-resizable-helper { border: 1px dotted gray; }
+.jspDrag{ background:white; border:1px solid black;}
+.jspTrack{background:url('images/scroll-bg.png'); background-size: 16px 6px; border:1px solid black;border-right:0px;}
+.jspCap
+{
+	display: block;
+	background: #eeeef4;
+}
+
+.jspCap
+{
+	height: 25px;
+  background:white;
+}
+
+.jspCapBottom{
+  height:20px;
+}
+
+.jspVerticalBar {
+  width:20px;
+}
+
+.jspArrow {
+  height:20px!important;
+  border:1px solid black;
+}
+
+.jspArrowUp {
+  background:url('images/up-arr.png');
+  background-size:contain;
+  background-repeat:no-repeat;
+  border-right: 0px;
+  border-bottom: 0px;
+}
+
+.jspArrowDown {
+  background:url('images/down-arr.png');
+  background-size:contain;
+  background-repeat:no-repeat;
+  border-top: 0px;
+  border-right: 0px;
+}
+
+
+.jspArrowUp.jspDisabled {
+  background: url(images/up-arr.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.jspArrowDown.jspDisabled {
+  background: url(images/down-arr.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 @media (min-width: 979px) {
     ul.nav div.dropdown:hover > ul.dropdown-menu {
-        display: block;    
+        display: block;
     }
 }
 
+#juttu1 {
+  top:200px;
+  left:50px;
+}
 
 
 
