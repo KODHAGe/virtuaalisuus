@@ -94,9 +94,13 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+   @font-face {
+       font-family: Virtue;
+       src: url('fonts/Virtue.ttf.woff');
+   }
 
 body {
-    font-family:'Virtue'!important;
+    font-family:'Monaco'!important,'Virtue'!important, 'Anonymous Pro'!important, monospace;
     background-color:#aaa!important;
     background:url("images/background.png");
     background-size:2px 2px;
@@ -105,6 +109,7 @@ body {
 }
 
 .navbar-inverse {
+    font-family:'Virtue'!important;
     background-color: white;
     border-color: #000000;
     border: 1px solid black;
@@ -192,6 +197,10 @@ a:hover::first-letter, a:focus::first-letter {
   none;
 }
 
+.content-modal.active {
+  z-index:1000;
+}
+
 .content-modal-header {
   height:25px;
     display:flex;
@@ -211,6 +220,10 @@ a:hover::first-letter, a:focus::first-letter {
   margin-left:5px;
   vertical-align:3px;
   padding:2px;
+}
+
+.content-modal-close:hover {
+  cursor:default;
 }
 
 .content-modal-heading{
@@ -233,6 +246,20 @@ a:hover::first-letter, a:focus::first-letter {
   position:absolute;
   bottom:0px;
   background:white;
+}
+.content-modal-content {
+  margin-left:40px;
+  margin-right:40px;
+}
+.content-modal-content p{
+  margin:20px;
+}
+
+.container {
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
