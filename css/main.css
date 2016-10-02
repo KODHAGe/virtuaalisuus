@@ -178,7 +178,7 @@ a:hover::first-letter, a:focus::first-letter {
     font-size: 14px;
     background: white;
     margin-top: 2px;
-    max-width: 70px;
+    max-width: 140px;
 }
 
 .content-modal {
@@ -236,6 +236,9 @@ a:hover::first-letter, a:focus::first-letter {
 .content-modal-image {
     max-width:400px;
     max-height:400px;
+    display: flex;
+    margin: auto;
+    margin-top:40px;
 }
 
 .content-modal-footer {
@@ -250,6 +253,7 @@ a:hover::first-letter, a:focus::first-letter {
 .content-modal-content {
   margin-left:40px;
   margin-right:40px;
+  margin-top:40px;
 }
 .content-modal-content p{
   margin:20px;
@@ -336,16 +340,20 @@ border-bottom:0px;
   background-repeat: no-repeat;
 }
 
+.jspHorizontalBar {
+  display:none;
+}
+
+.jspVerticalBar {
+  background:white!important;
+}
+
 @media (min-width: 979px) {
     ul.nav div.dropdown:hover > ul.dropdown-menu {
         display: block;
     }
 }
 
-#juttu1 {
-  top:200px;
-  left:50px;
-}
 
 
 
