@@ -1,87 +1,101 @@
-$(".container").load("../content/articles.html");
+$(".container").load("./content/articles.html", function(response) {
 
-_386 = {
-  onePass: true,
-  speedFactor: 1.25
-};
-$(function() {
-  $(".draggable").draggable();
-});
-
-$(function() {
-  $("#juttu1").resizable({
-    grid: 50,
-    helper: "ui-resizable-helper",
-    stop: function(e, ui) {
-      console.log(ui);
-      var scroll = $('.jsscroll').jScrollPane(scrollSettings);
-      var contentPane = scrollApi.getContentPane();
-      $(this).width(ui.size.width);
-      $(".content-modal", this).width(ui.size.width);
-      $(".jspContainer", this).width(ui.size.width);
-      $(".jspPane", this).width(ui.size.width);
-      $(".jspTrack", this).width(ui.size.width);
-      $(".jspContainer", this).height(ui.size.height - 5);
+  console.log('Loaded', response);
+  $(response).each(function(k, v) {
+    console.log(k, v);
+    if (v.id) {
+      var articleIcon =
+        '<div class="application-icon draggable" data-open-modal="' + v
+        .id +
+        '"><img class="icon-img dither" src="css/images/text-file.png"><div class="icon-text">' +
+        $(".content-modal-heading", v).html() + '</div></div>';
+      $(".container").append(articleIcon);
     }
   });
-});
-
-$(function() {
-  $("#juttu2").resizable({
-    grid: 50,
-    helper: "ui-resizable-helper",
-    stop: function(e, ui) {
-      var scroll = $('.jsscroll').jScrollPane(scrollSettings);
-      var contentPane = scrollApi.getContentPane();
-      $(this).width(ui.size.width);
-      $(".content-modal", this).width(ui.size.width);
-      $(".jspContainer", this).width(ui.size.width);
-      $(".jspPane", this).width(ui.size.width);
-      $(".jspTrack", this).width(ui.size.width);
-      $(".jspContainer", this).height(ui.size.height - 5);
-      /*
-            $(".content-modal").width(ui.size.width);
-            $(".jspContainer").width(ui.size.width);
-            $(".jspPane").width(ui.size.width);
-            $(".jspTrack").width(ui.size.width);
-            $(".jspContainer").height(ui.size.height - 5);*/
-    }
+  _386 = {
+    onePass: true,
+    speedFactor: 1.25
+  };
+  $(function() {
+    $(".draggable").draggable();
   });
-});
 
-$(".content-modal-close").click(function() {
-  $(this).closest('.content-modal').hide();
-});
+  $(function() {
+    $("#juttu1").resizable({
+      grid: 50,
+      helper: "ui-resizable-helper",
+      stop: function(e, ui) {
+        console.log(ui);
+        var scroll = $('.jsscroll').jScrollPane(scrollSettings);
+        var contentPane = scrollApi.getContentPane();
+        $(this).width(ui.size.width);
+        $(".content-modal", this).width(ui.size.width);
+        $(".jspContainer", this).width(ui.size.width);
+        $(".jspPane", this).width(ui.size.width);
+        $(".jspTrack", this).width(ui.size.width);
+        $(".jspContainer", this).height(ui.size.height - 5);
+      }
+    });
+  });
 
-$(".application-icon").dblclick(function() {
-  var modalToOpen = $(this).data('openModal');
-  $('#' + modalToOpen).show();
-  $('.active', 'body').removeClass('active');
-  $('#' + modalToOpen).addClass("active");
-});
+  $(function() {
+    $("#juttu2").resizable({
+      grid: 50,
+      helper: "ui-resizable-helper",
+      stop: function(e, ui) {
+        var scroll = $('.jsscroll').jScrollPane(scrollSettings);
+        var contentPane = scrollApi.getContentPane();
+        $(this).width(ui.size.width);
+        $(".content-modal", this).width(ui.size.width);
+        $(".jspContainer", this).width(ui.size.width);
+        $(".jspPane", this).width(ui.size.width);
+        $(".jspTrack", this).width(ui.size.width);
+        $(".jspContainer", this).height(ui.size.height - 5);
+        /*
+              $(".content-modal").width(ui.size.width);
+              $(".jspContainer").width(ui.size.width);
+              $(".jspPane").width(ui.size.width);
+              $(".jspTrack").width(ui.size.width);
+              $(".jspContainer").height(ui.size.height - 5);*/
+      }
+    });
+  });
 
-$("#scrollbars").click(function() {
-  scrollApi.reinitialise();
-});
+  $(".content-modal-close").click(function() {
+    $(this).closest('.content-modal').hide();
+  });
 
-$('.dither').ditherJS(options);
+  $(".application-icon").dblclick(function() {
+    var modalToOpen = $(this).data('openModal');
+    $('#' + modalToOpen).show();
+    $('.active', 'body').removeClass('active');
+    $('#' + modalToOpen).addClass("active");
+  });
 
-var options = {
-  "step": 1,
-  "className": "dither",
-  "algorithm": "atkinson"
-};
-var scrollSettings = {
-  alwaysShowScroll: true,
-  showArrows: true,
-  verticalGutter: 0
+  $("#scrollbars").click(function() {
+    scrollApi.reinitialise();
+  });
 
-};
-var scroll = $('.jsscroll').jScrollPane(scrollSettings);
-$('.jsscroll .jspContainer').append('<div class="content-modal-footer"></div>');
-var scrollApi = scroll.data('jsp');
+  $('.dither').ditherJS(options);
 
-$(".content-modal").click(function() {
-  $('.active', 'body').removeClass('active');
-  $(this).addClass("active");
+  var options = {
+    "step": 1,
+    "className": "dither",
+    "algorithm": "atkinson"
+  };
+  var scrollSettings = {
+    alwaysShowScroll: true,
+    showArrows: true,
+    verticalGutter: 0
+
+  };
+  var scroll = $('.jsscroll').jScrollPane(scrollSettings);
+  $('.jsscroll .jspContainer').append(
+    '<div class="content-modal-footer"></div>');
+  var scrollApi = scroll.data('jsp');
+
+  $(".content-modal").click(function() {
+    $('.active', 'body').removeClass('active');
+    $(this).addClass("active");
+  });
 });
