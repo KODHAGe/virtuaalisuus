@@ -17,8 +17,8 @@ $(".container").load("./content/articles.html", function(response) {
       console.log($(v.id));
       $(v.id).css('left', left);
       console.log($(v.id));
-      var leftIcon = randomIntFromInterval(30, maxwidth - 30);
-      var topIcon = randomIntFromInterval(30, maxheight - 30);
+      var leftIcon = randomIntFromInterval(100, maxwidth - 100);
+      var topIcon = randomIntFromInterval(100, maxheight - 100);
       var articleIcon =
         '<div style="left:' + leftIcon +
         'px;top:' + topIcon +
@@ -104,4 +104,6 @@ $(".container").load("./content/articles.html", function(response) {
     $('.active', 'body').removeClass('active');
     $(this).addClass("active");
   });
+  $(".content-modal").hide();
+
 });
