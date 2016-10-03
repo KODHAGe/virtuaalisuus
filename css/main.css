@@ -98,15 +98,20 @@ textarea {
        font-family: Virtue;
        src: url('fonts/Virtue.ttf.woff');
    }
-
+b {font-weight:bold;}
+i {font-style:italic;}
+html{height:100%;width:100%;}
 body {
-    font-family:'Monaco'!important,'Virtue'!important, 'Anonymous Pro'!important, monospace;
+    font-family:'Monaco'!important,'Anonymous Pro', monospace;
     background-color:#aaa!important;
     background:url("images/background.png");
     background-size:2px 2px;
     color:black!important;
     font-size:14px;
+    height:100%;
+    width:100%;
 }
+.container {height:100%;width:100%;overflow:hidden;}
 
 .navbar-inverse {
     font-family:'Virtue'!important;
@@ -180,6 +185,9 @@ a:hover::first-letter, a:focus::first-letter {
     margin-top: 2px;
     max-width: 140px;
 }
+.icon-text:hover {
+    cursor:default;
+}
 
 .content-modal {
     position:absolute;
@@ -191,6 +199,7 @@ a:hover::first-letter, a:focus::first-letter {
     height:500px;
     width:500px;
     z-index:2;
+    overflow:hidden;
 }
 
 .content-modal:focus {
@@ -202,15 +211,17 @@ a:hover::first-letter, a:focus::first-letter {
 }
 
 .content-modal-header {
-  height:25px;
+    height:25px;
     display:flex;
     text-align: center;
     border-bottom: 1px solid black;
-    position:fixed;
+    border-right: 2px solid black;
+    position:absolute;
     width:inherit;
     background-color:white;
     background:url('images/header-bg-pattern.png');
     background-size:contain;
+    z-index: 100;
 }
 
 .content-modal-close {
@@ -239,6 +250,7 @@ a:hover::first-letter, a:focus::first-letter {
     display: flex;
     margin: auto;
     margin-top:40px;
+    margin-bottom:20px;
 }
 
 .content-modal-footer {
@@ -251,14 +263,22 @@ a:hover::first-letter, a:focus::first-letter {
   background:white;
 }
 .content-modal-content {
-  margin-left:40px;
-  margin-right:40px;
-  margin-top:40px;
+  height:100%;width:100%;margin:0;
 }
 .content-modal-content p{
   margin:20px;
 }
 
+.content-wrap {
+  margin:40px;
+}
+
+.content-wrap div:hover{
+  cursor:default;
+}
+.content-wrap p:hover{
+  cursor:default;
+}
 .container {
     margin-right: 0px;
     margin-left: 0px;

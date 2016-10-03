@@ -28,6 +28,11 @@ $(".container").load("./content/articles.html", function(response) {
         '"><img class="icon-img dither" src="css/images/text-file.png"><div class="icon-text">' +
         $(".content-modal-heading", v).html() + '</div></div>';
       $(".container").append(articleIcon);
+      $("#index").append('<li class="menu-link" data-open-modal="' +
+        v
+        .id +
+        '"><a href="#">' +
+        $(".content-modal-heading", v).html() + '</a></li>');
     }
     scrollSettings = {
       alwaysShowScroll: true,
@@ -69,6 +74,12 @@ $(".container").load("./content/articles.html", function(response) {
     $(this).closest('.content-modal').hide();
   });
 
+  $(".menu-link").click(function() {
+    var modalToOpen = $(this).data('openModal');
+    $('#' + modalToOpen).show();
+    $('.active', 'body').removeClass('active');
+    $('#' + modalToOpen).addClass("active");
+  });
   $(".application-icon").dblclick(function() {
     var modalToOpen = $(this).data('openModal');
     $('#' + modalToOpen).show();
