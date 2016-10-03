@@ -14,12 +14,17 @@
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="dist/css/bootstrap-theme.css" rel="stylesheet">
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
-    <link href="css/jquery.mousewheel.css" rel="stylesheet">
     <link href="css/jquery.jscrollpane.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
 </head>
 <body>
+  <div id="splash">
+    <div id="start-icon">
+      <img src='img/kansi_koivaara.jpg'></img>
+      <div>Käkriäinen 3/2016<br/>Virtuaalisuus<br/>Yhdistä</div>
+    </div>
+  </div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="nav-container">
             <div class="navbar-header">
@@ -32,29 +37,7 @@
                     <button aria-expanded="true" aria-haspopup="true" class=
                     "btn btn-default dropdown-toggle" data-toggle="dropdown"
                     id="dropdownMenu2" type="button">Käkriäinen</button>
-                    <ul aria-labelledby="dropdownMenu2" class="dropdown-menu">
-                      <li>
-                          <a href="#">Pääkirjoitus</a>
-                      </li>
-                        <li class="divider" role="separator"></li>
-                        <li>
-                            <a href="#">Julkaisija</a>
-                        </li>
-                        <li>
-                            <a href="#">Päätoimittajat</a>
-                        </li>
-                        <li>
-                            <a href="#">Toimitussihteeri</a>
-                        </li>
-                        <li>
-                            <a href="#">Taitto</a>
-                        </li>
-                        <li>
-                            <a href="#">Kansi ja kuvat</a>
-                        </li>
-                        <li>
-                            <a href="#">Kirjoittajat</a>
-                        </li>
+                    <ul id="info" aria-labelledby="dropdownMenu2" class="dropdown-menu">
                     </ul>
                 </div>
             </div>
@@ -69,7 +52,7 @@
                         "dropdown-menu">
                         </ul>
                     </div>
-                    <div class="dropdown menudrop">
+                    <!--<div class="dropdown menudrop">
                         <button aria-expanded="true" aria-haspopup="true"
                         class="btn btn-default dropdown-toggle" data-toggle=
                         "dropdown" id="dropdownMenu4" type=
@@ -112,13 +95,21 @@
                                 <a href="#">Separated link</a>
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
                 </div>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
     <div class="container">
-      
+      <div class="info">
+      </div>
+      <div class="articles">
+      </div>
+      <div class="images">
+      </div>
+      <div class="icons">
+      </div>
+
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -132,6 +123,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js">
     </script>
     <script src="js/vendor/jquery.ditherjs.min.js"></script>
+    <script src="js/vendor/jquery.mousewheel.min.js"></script>
     <script src="js/vendor/jquery.jscrollpane.js"></script>
     <script src="dist/js/bootstrap.min.js">
     </script>
