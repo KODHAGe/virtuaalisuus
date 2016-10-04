@@ -126,19 +126,31 @@ $("#splash").click(function() {
     $(".menu-link").click(function() {
       var modalToOpen = $(this).data('openModal');
       $('#' + modalToOpen).show();
+      $('#' + modalToOpen).css('top', "40px");
       $('.active', 'body').removeClass('active');
       $('#' + modalToOpen).addClass("active");
     });
+
     $(".application-icon").dblclick(function() {
+      handleIconClick();
+    });
+
+    function handleIconClick(e) {
       var modalToOpen = $(this).data('openModal');
       $('#' + modalToOpen).show();
-      var left = randomIntFromInterval(100, 300);
-      var top = randomIntFromInterval(100, 300);
-      $('#' + modalToOpen).css('left', left);
-      $('#' + modalToOpen).css('top', top);
+      if (maxwidth > 800) {
+        var left = randomIntFromInterval(100, 300);
+        var top = randomIntFromInterval(100, 300);
+        $('#' + modalToOpen).css('left', left);
+        $('#' + modalToOpen).css('top', top);
+      } else {
+        $('#' + modalToOpen).css('top', "40px");
+      }
       $('.active', 'body').removeClass('active');
       $('#' + modalToOpen).addClass("active");
-    });
+    }
+
+    $(".application-icon").hammer().bind("tap", handleIconClick);
 
     $('.dither').ditherJS(options);
 
@@ -149,7 +161,11 @@ $("#splash").click(function() {
   });
   setTimeout(function() {
     $(".content-modal").hide();
-    $("#info-1").css("top", "60px").css("left", "120px");
+    if (maxwidth > 800) {
+      $("#info-1").css("top", "60px").css("left", "120px");
+    } else {
+      $("#info-1").css("top", "40px");
+    }
     $("#info-1").show();
     $("#splash").fadeOut('slow');
   }, 5000);

@@ -5,7 +5,8 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <title></title>
     <meta content="" name="description">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=0.41, maximum-scale=1" />-->
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Place favicon.ico in the root directory -->
     <link href="css/normalize.css" rel="stylesheet">
@@ -28,11 +29,6 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="nav-container">
             <div class="navbar-header">
-                <button aria-controls="navbar" aria-expanded="false" class=
-                "navbar-toggle collapsed" data-target="#navbar" data-toggle=
-                "collapse" type="button"><span class="sr-only">Toggle
-                navigation</span> <span class="icon-bar"></span> <span class=
-                "icon-bar"></span> <span class="icon-bar"></span></button>
                 <div class="dropdown menudrop">
                     <button aria-expanded="true" aria-haspopup="true" class=
                     "btn btn-default dropdown-toggle" data-toggle="dropdown"
@@ -40,19 +36,20 @@
                     <ul id="info" aria-labelledby="dropdownMenu2" class="dropdown-menu">
                     </ul>
                 </div>
+                <div class="dropdown menudrop">
+                    <button aria-expanded="true" aria-haspopup="true"
+                    class="btn btn-default dropdown-toggle" data-toggle=
+                    "dropdown" id="dropdownMenu3" type=
+                    "button">Sisällysluettelo</button>
+                    <ul id="index" aria-labelledby="dropdownMenu3" class=
+                    "dropdown-menu">
+                    </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="navbar">
+            <!--<div class="collapse navbar-collapse" id="navbar">
                 <div class="nav navbar-nav" style="margin-left: 2em">
+
                     <div class="dropdown menudrop">
-                        <button aria-expanded="true" aria-haspopup="true"
-                        class="btn btn-default dropdown-toggle" data-toggle=
-                        "dropdown" id="dropdownMenu3" type=
-                        "button">Sisällysluettelo</button>
-                        <ul id="index" aria-labelledby="dropdownMenu3" class=
-                        "dropdown-menu">
-                        </ul>
-                    </div>
-                    <!--<div class="dropdown menudrop">
                         <button aria-expanded="true" aria-haspopup="true"
                         class="btn btn-default dropdown-toggle" data-toggle=
                         "dropdown" id="dropdownMenu4" type=
@@ -95,9 +92,9 @@
                                 <a href="#">Separated link</a>
                             </li>
                         </ul>
-                    </div>-->
+                    </div>
                 </div>
-            </div><!--/.nav-collapse -->
+            </div>--><!--/.nav-collapse -->
         </div>
     </nav>
     <div class="container">
@@ -125,6 +122,8 @@
     <script src="js/vendor/jquery.ditherjs.min.js"></script>
     <script src="js/vendor/jquery.mousewheel.min.js"></script>
     <script src="js/vendor/jquery.jscrollpane.js"></script>
+    <script src="js/vendor/hammer.min.js"></script>
+    <script src="js/vendor/jquery.hammer.js"></script>
     <script src="dist/js/bootstrap.min.js">
     </script>
     <script src="js/main.js">
