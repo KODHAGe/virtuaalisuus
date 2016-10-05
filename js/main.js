@@ -18,7 +18,7 @@ var options = {
   ]
 };
 
-$('#start-icon img').ditherJS(options);
+//$('#start-icon img').ditherJS(options);
 
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -38,7 +38,7 @@ $("#splash").click(function() {
           'px" class="application-icon draggable" data-open-modal="' +
           v
           .id +
-          '"><img class="icon-img" src="css/images/textfile.png"><div class="icon-text">' +
+          '"><img class="icon-img" src="css/images/imagefile.png"><div class="icon-text">' +
           $(".content-modal-heading", v).html() + '</div></div>';
         $(".icons").append(articleIcon);
       }
@@ -46,7 +46,7 @@ $("#splash").click(function() {
   });
   $(".info").load("./content/info.html", function(response) {
     $(response).each(function(k, v) {
-      if (v.id) {
+      if (v.id && v.id != "trash") {
         $("#info").append(
           '<li class="menu-link" data-open-modal="' +
           v.id +
@@ -60,8 +60,6 @@ $("#splash").click(function() {
     });
   });
   $(".articles").load("./content/articles.html", function(response) {
-
-
     $(response).each(function(k, v) {
       if (v.id) {
         var leftIcon = randomIntFromInterval(70, maxwidth - 70);
@@ -152,13 +150,18 @@ $("#splash").click(function() {
 
     $(".application-icon").hammer().bind("tap", handleIconClick);
 
-    $('.dither').ditherJS(options);
+    //$('.dither').ditherJS(options);
 
     $(".content-modal").click(function() {
       $('.active', 'body').removeClass('active');
       $(this).addClass("active");
     });
   });
+
+  var articleIcon =
+    '<div style="left:100px;top:100px" class="application-icon draggable" data-open-modal="trash"><img class="icon-img" src="css/images/trashcan.png"><div class="icon-text">Roskakori</div></div>';
+  $(".icons").append(articleIcon);
+
   setTimeout(function() {
     $(".content-modal").hide();
     if (maxwidth > 800) {
