@@ -113,6 +113,7 @@ body {
     overflow:hidden;
 }
 
+/*-------Splash & load-------*/
 
 #splash {
   width:100%;
@@ -157,6 +158,10 @@ body {
 }
 
 .container {height:100%;width:100%;overflow:hidden;}
+
+
+/*-------Navigation-------*/
+
 
 .navbar-inverse {
     font-family:'Virtue'!important;
@@ -209,6 +214,8 @@ a:hover::first-letter, a:focus::first-letter {
     color:white;
 }
 
+/*-------Icons-------*/
+
 .application-icon {
     position:absolute;
     display: inline-block;
@@ -233,6 +240,8 @@ a:hover::first-letter, a:focus::first-letter {
 .icon-text:hover {
     cursor:default;
 }
+
+/*-------Content-------*/
 
 .content-modal {
     position:absolute;
@@ -276,8 +285,9 @@ a:hover::first-letter, a:focus::first-letter {
   z-index:1;
   display:inline;
   margin-left:5px;
-  vertical-align:3px;
   padding:2px;
+  font-size: 1.8em;
+  margin-top: 1px;
 }
 
 .content-modal-close:hover {
@@ -337,6 +347,8 @@ a:hover::first-letter, a:focus::first-letter {
 .info {height:100%;width:100%;position:absolute;}
 .images {height:100%;width:100%;position:absolute;}
 
+/*-------jQueryUI-------*/
+
 .ui-icon, .ui-widget-content .ui-icon {
 background:url('images/resize.png');
 background-size:contain;
@@ -344,16 +356,17 @@ border:1px black solid;
 border-right:0px;
 border-bottom:0px;
 }
+
 .ui-icon {
   height:20px;
   width:20px;
   bottom:0px;
   right:0px;
 }
-
-/*JSP*/
-
 .ui-resizable-helper { border: 1px dotted gray;}
+
+/*-------JSP-------*/
+
 .jspDrag{ background:white; border:1px solid black;}
 .jspTrack{background:url('images/scroll-bg.png'); background-size: 16px 6px; border:1px solid black;border-right:0px;}
 .jspCap
@@ -418,6 +431,8 @@ border-bottom:0px;
   background:white!important;
 }
 
+/*-------Miscellaneous-------*/
+
 @media (min-width: 979px) {
     ul.nav div.dropdown:hover > ul.dropdown-menu {
         display: block;
@@ -458,9 +473,9 @@ border-bottom:0px;
 }
 
 .chat-divide {
-width: 100%;
-border-top: 1px dotted black;
-padding-bottom: 20px;
+  width: 100%;
+  border-top: 1px dotted black;
+  padding-bottom: 20px;
 }
 
 .release-info p{

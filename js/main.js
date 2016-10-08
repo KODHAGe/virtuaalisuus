@@ -1,3 +1,5 @@
+// Glabals, defaults & options
+
 var scrollApi;
 var scrollSettings;
 var maxwidth = $(window).width();
@@ -8,25 +10,35 @@ _386 = {
   speedFactor: 1.25
 };
 var modem = new Audio("./audio/modem.mp3");
-var options = {
-  "step": 1,
-  "className": "dither",
-  "algorithm": "atkinson",
-  "palette": [
-    [0, 0, 0],
-    [255, 255, 255]
-  ]
-};
 
-//$('#start-icon img').ditherJS(options);
+// Helpers & handlers
 
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function handleIconClick(e) {
+  var modalToOpen = $(this).data('openModal');
+  $('#' + modalToOpen).show();
+  if (maxwidth > 800) {
+    var left = randomIntFromInterval(100, 300);
+    var top = randomIntFromInterval(100, 300);
+    $('#' + modalToOpen).css('left', left);
+    $('#' + modalToOpen).css('top', top);
+  } else {
+    $('#' + modalToOpen).css('top', "40px");
+  }
+  $('.active', 'body').removeClass('active');
+  $('#' + modalToOpen).addClass("active");
+}
+
+// Main
+
 $("#splash").click(function() {
   modem.play();
   $("#start-icon").html("Yhdistetään...");
+
+  //Load image articles
   $(".images").load("./content/images.html", function(response) {
     $(response).each(function(k, v) {
       var leftIcon = randomIntFromInterval(70, maxwidth - 70);
@@ -44,9 +56,11 @@ $("#splash").click(function() {
       }
     });
   });
+
+  //Load info articles
   $(".info").load("./content/info.html", function(response) {
     $(response).each(function(k, v) {
-      if (v.id && v.id != "trash") {
+      if (v.id && v.id != "trash" && v.id != "spam") {
         $("#info").append(
           '<li class="menu-link" data-open-modal="' +
           v.id +
@@ -59,6 +73,8 @@ $("#splash").click(function() {
       };
     });
   });
+
+  // Load main articles
   $(".articles").load("./content/articles.html", function(response) {
     $(response).each(function(k, v) {
       if (v.id) {
@@ -80,23 +96,30 @@ $("#splash").click(function() {
           '"><a href="#">' +
           $(".content-modal-heading", v).html() + '</a></li>');
       }
+
+      // Init scrolling on all articles
+
       scrollSettings = {
         alwaysShowScroll: true,
         showArrows: true,
         verticalGutter: 0
       };
+
       var scroll = $('.jsscroll').jScrollPane(scrollSettings);
       $('.jsscroll .jspContainer').append(
         '<div class="content-modal-footer"></div>');
       scrollApi = scroll.data('jsp');
+
     });
 
+    // Make stuff draggable (jQueryUI)
     $(function() {
       $(".draggable").draggable({
         containment: "parent"
       });
     });
 
+    //...and resizable (jQueryUI)
     $(function() {
       $(".resizable").resizable({
         grid: 50,
@@ -117,6 +140,8 @@ $("#splash").click(function() {
       });
     });
 
+    // Click handlers
+
     $(".content-modal-close").click(function() {
       $(this).closest('.content-modal').hide();
     });
@@ -133,24 +158,7 @@ $("#splash").click(function() {
       handleIconClick();
     });
 
-    function handleIconClick(e) {
-      var modalToOpen = $(this).data('openModal');
-      $('#' + modalToOpen).show();
-      if (maxwidth > 800) {
-        var left = randomIntFromInterval(100, 300);
-        var top = randomIntFromInterval(100, 300);
-        $('#' + modalToOpen).css('left', left);
-        $('#' + modalToOpen).css('top', top);
-      } else {
-        $('#' + modalToOpen).css('top', "40px");
-      }
-      $('.active', 'body').removeClass('active');
-      $('#' + modalToOpen).addClass("active");
-    }
-
     $(".application-icon").hammer().bind("tap", handleIconClick);
-
-    //$('.dither').ditherJS(options);
 
     $(".content-modal").click(function() {
       $('.active', 'body').removeClass('active');
@@ -158,10 +166,11 @@ $("#splash").click(function() {
     });
   });
 
-  var articleIcon =
+  var trash =
     '<div style="left:100px;top:100px" class="application-icon draggable" data-open-modal="trash"><img class="icon-img" src="css/images/trashcan.png"><div class="icon-text">Roskakori</div></div>';
-  $(".icons").append(articleIcon);
+  $(".icons").append(trash);
 
+  // Loadscreen timout & hide
   setTimeout(function() {
     $(".content-modal").hide();
     if (maxwidth > 800) {
