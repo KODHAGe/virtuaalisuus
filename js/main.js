@@ -18,18 +18,22 @@ function randomIntFromInterval(min, max) {
 }
 
 function handleIconClick(e) {
-  var modalToOpen = $(this).data('openModal');
-  $('#' + modalToOpen).show();
-  if (maxwidth > 800) {
-    var left = randomIntFromInterval(100, 300);
-    var top = randomIntFromInterval(100, 300);
-    $('#' + modalToOpen).css('left', left);
-    $('#' + modalToOpen).css('top', top);
+  if ($(this).data('openModal') == "print") {
+    printJS('virtuaalisuus.pdf');
   } else {
-    $('#' + modalToOpen).css('top', "40px");
+    var modalToOpen = $(this).data('openModal');
+    $('#' + modalToOpen).show();
+    if (maxwidth > 800) {
+      var left = randomIntFromInterval(100, 300);
+      var top = randomIntFromInterval(100, 300);
+      $('#' + modalToOpen).css('left', left);
+      $('#' + modalToOpen).css('top', top);
+    } else {
+      $('#' + modalToOpen).css('top', "40px");
+    }
+    $('.active', 'body').removeClass('active');
+    $('#' + modalToOpen).addClass("active");
   }
-  $('.active', 'body').removeClass('active');
-  $('#' + modalToOpen).addClass("active");
 }
 
 // Main
@@ -169,6 +173,12 @@ $("#splash").click(function() {
   var trash =
     '<div style="left:100px;top:100px" class="application-icon draggable" data-open-modal="trash"><img class="icon-img" src="css/images/trashcan.png"><div class="icon-text">Roskakori</div></div>';
   $(".icons").append(trash);
+
+  var print =
+    '<div style="left:200px;top:200px" class="application-icon draggable" data-open-modal="print"><img class="icon-img" src="css/images/print.png"><div class="icon-text">Tulosta</div></div>';
+  $(".icons").append(print);
+
+
 
   // Loadscreen timout & hide
   setTimeout(function() {
