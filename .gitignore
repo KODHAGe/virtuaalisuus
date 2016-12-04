@@ -5,3 +5,6 @@ admin/
 virtuaalisuus/
 kuolema/
 wp/
+index.php
+.htaccess.old
+.htaccess
